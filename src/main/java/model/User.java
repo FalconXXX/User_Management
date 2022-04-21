@@ -30,10 +30,11 @@ public class User {
         return name;
     }
 
+
     public void setName(String name) throws UserException {
-        if(name.length() < 2 )
+        if(name.length() >= 2 )
         {
-            setName(name);
+            this.name = name;
         }
         else
         {
@@ -48,9 +49,9 @@ public class User {
     }
 
     public void setSurename(String surename) throws UserException {
-        if(surename.length() < 2)
+        if(surename.length() >= 2)
         {
-            setSurename(surename);
+            this.surename = surename;
         }
         else
         {
@@ -64,14 +65,19 @@ public class User {
     }
 
     public void setAge(int age) throws UserException {
-        if((age <=16) && (age >=65))
+        if((age >=16) && (age <= 65))
         {
-            setAge(age);
+            this.age = age;
         }
         else
         {
             throw new UserException("Error: to young or old...");
         }
+    }
+
+    public String toString()
+    {
+        return "Name: " + name + "\nSurename: " + surename + "\nAge: " + age;
     }
 
 }
